@@ -8,9 +8,10 @@
   --color-green: #8cc928;
 
   /* Fonts */
-  --font-h1: "Roboto Black", sans-serif;
+  --font-h1: "Roboto Bold", sans-serif;
   --font-h2: "Roboto Medium", sans-serif;
   --font-body: "Roboto", sans-serif;
+  
 
   --font-size-h1: 50px;
   --font-size-h2: 18px;

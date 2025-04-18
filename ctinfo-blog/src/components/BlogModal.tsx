@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./BlogModal.module.css";
+import closeButton from "../assets/close-icon.png"
 
 type Blog = {
   id: number;
@@ -20,7 +21,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, onClose }) => {
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <button onClick={onClose} className={styles.closeButton}>
-          <img src="/close-icon.png" alt="Close" className={styles.closeIcon} />
+          <img src={closeButton} alt="Close" className={styles.closeIcon} />
         </button>
 
         <h2 className={styles.title}>{blog.title}</h2>

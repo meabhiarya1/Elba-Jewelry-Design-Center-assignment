@@ -12,7 +12,7 @@
 }
 
 .title {
-  font-family: var(--font-h1);
+  font-family: var(--font-body);
   font-size: var(--font-size-h1);
   color: var(--color-font-primary);
 }
@@ -26,6 +26,7 @@
   font-size: var(--font-size-body);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: var(--font-body);
 }
 
 .newButton:hover {
@@ -37,6 +38,7 @@
   background-color: var(--color-background);
   border-radius: var(--spacing-1); /* 12px */
   border: 1px solid #e0e0e0;
+  font-family: var(--font-body);
 }
 
 .table {
@@ -54,6 +56,7 @@
 .tableHead th,
 .tableBody td {
   padding: var(--spacing-1) var(--spacing-2); /* 12px 24px */
+  font-family: var(--font-body);
 }
 
 .tableRow {
