@@ -1,0 +1,50 @@
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .modalContent {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .closeIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .title {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 12px;
+  }
+  
+  .description {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #979FA0;
+    white-space: pre-wrap;
+  }
+  

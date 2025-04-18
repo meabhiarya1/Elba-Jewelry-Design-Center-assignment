@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./BlogModal.module.css";
 
 type Blog = {
   id: number;
@@ -16,29 +17,14 @@ type BlogModalProps = {
 
 const BlogModal: React.FC<BlogModalProps> = ({ blog, onClose }) => {
   return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-      onClick={onClose}
-    >
-      <div
-        className="bg-white rounded-lg p-6 max-w-md w-full relative"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3"
-        >
-          <img
-            src="/close-icon.png"
-            alt="Close"
-            className="w-5 h-5"
-          />
+    <div className={styles.modalOverlay} onClick={onClose}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+        <button onClick={onClose} className={styles.closeButton}>
+          <img src="/close-icon.png" alt="Close" className={styles.closeIcon} />
         </button>
 
-        <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-        <p className="text-gray-700 text-sm whitespace-pre-wrap">
-          {blog.description}
-        </p>
+        <h2 className={styles.title}>{blog.title}</h2>
+        <p className={styles.description}>{blog.description}</p>
       </div>
     </div>
   );
