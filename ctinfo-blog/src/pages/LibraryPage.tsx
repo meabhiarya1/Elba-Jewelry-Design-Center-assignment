@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BlogModal from "../components/BlogModal";
 import styles from "./LibraryPage.module.css";
+import { fetchBlogs } from "../services/blogApi";
 
 type Blog = {
   id: number;
@@ -12,29 +13,39 @@ type Blog = {
   description: string;
 };
 
-const dummyBlogs: Blog[] = [
-  {
-    id: 1,
-    title: "Communicate more by saying less",
-    author: "Casey Cox",
-    launchdate: "February 22, 2023",
-    image_link: "https://source.unsplash.com/random/1",
-    description: "This blog is about being concise and impactful...",
-  },
-  {
-    id: 2,
-    title: "Hope you are enjoying my assessment",
-    author: "Edward Bachoura",
-    launchdate: "February 14, 2023",
-    image_link: "https://source.unsplash.com/random/2",
-    description: "A light-hearted blog to make you smile...",
-  },
-  // Add more...
-];
-
 const LibraryPage = () => {
   const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadBlogs = async () => {
+      try {
+        const data = await fetchBlogs();
+
+        const parsedData = JSON.parse(data.dt);
+
+        const mappedBlogs = parsedData.map((blog: any) => ({
+          ...blog,
+          image_link: blog.image_lnk,
+          launchdate: new Date(blog.launchdate).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }),
+        }));
+
+        setBlogs(mappedBlogs);
+      } catch (error) {
+        console.error("Failed to fetch blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadBlogs();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -55,8 +66,8 @@ const LibraryPage = () => {
               <th>Author</th>
             </tr>
           </thead>
-          <tbody className={styles.tableBody}>
-            {dummyBlogs.map((blog) => (
+          {loading ? <p>Loading...</p> : <tbody className={styles.tableBody}>
+            {blogs?.map((blog) => (
               <tr key={blog.id} className={styles.tableRow}>
                 <td>
                   <img
@@ -75,7 +86,7 @@ const LibraryPage = () => {
                 <td className={styles.textPrimary}>{blog.author}</td>
               </tr>
             ))}
-          </tbody>
+          </tbody>}
         </table>
       </div>
 

@@ -2,10 +2,19 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./NewBlogPage.module.css"; // CSS Module with styles like .container, .form, etc.
 
+import { createBlog as createBlogApi } from "../services/blogApi"; // Adjust the import path as necessary
+
 const createBlog = async (blog: any) => {
-  console.log("Creating blog...", blog);
-  return new Promise((resolve) => setTimeout(resolve, 1000));
+  try {
+    const response = await createBlogApi(blog);
+    console.log("Blog created successfully:", response);
+    return response;
+  } catch (error) {
+    console.error("Failed to create blog:", error);
+    throw error;
+  }
 };
+
 
 const NewBlogPage = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +35,7 @@ const NewBlogPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await createBlog(formData);
-    navigate("/library");
+    navigate("/");
   };
 
   return (
