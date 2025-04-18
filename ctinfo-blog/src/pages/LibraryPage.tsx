@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import BlogModal from "../components/BlogModal";
 import styles from "./LibraryPage.module.css";
 import { fetchBlogs } from "../services/blogApi";
+import EmailModal from "../components/EmailModal";
+import { useEmail } from "../context/EmailContext";
 
 type Blog = {
   id: number;
@@ -18,8 +20,11 @@ const LibraryPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { email } = useEmail(); // Get email from context
 
   useEffect(() => {
+    if (!email) return; // Don't fetch if email not set
+
     const loadBlogs = async () => {
       try {
         const data = await fetchBlogs();
@@ -45,7 +50,11 @@ const LibraryPage = () => {
     };
 
     loadBlogs();
-  }, []);
+  }, [email]);
+
+  if (!email) {
+    return <EmailModal />;
+  }
 
   return (
     <div className={styles.container}>
@@ -66,27 +75,32 @@ const LibraryPage = () => {
               <th>Author</th>
             </tr>
           </thead>
-          {loading ? <p>Loading...</p> : <tbody className={styles.tableBody}>
-            {blogs?.map((blog) => (
-              <tr key={blog.id} className={styles.tableRow}>
-                <td>
-                  <img
-                    src={blog.image_link}
-                    alt="cover"
-                    className={styles.coverImage}
-                  />
-                </td>
-                <td className={styles.textSecondary}>{blog.launchdate}</td>
-                <td
-                  className={styles.clickableTitle}
-                  onClick={() => setSelectedBlog(blog)}
-                >
-                  {blog.title}
-                </td>
-                <td className={styles.textPrimary}>{blog.author}</td>
-              </tr>
-            ))}
-          </tbody>}
+
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <tbody className={styles.tableBody}>
+              {blogs?.map((blog) => (
+                <tr key={blog.id} className={styles.tableRow}>
+                  <td>
+                    <img
+                      src={blog.image_link}
+                      alt="cover"
+                      className={styles.coverImage}
+                    />
+                  </td>
+                  <td className={styles.textSecondary}>{blog.launchdate}</td>
+                  <td
+                    className={styles.clickableTitle}
+                    onClick={() => setSelectedBlog(blog)}
+                  >
+                    {blog.title}
+                  </td>
+                  <td className={styles.textPrimary}>{blog.author}</td>
+                </tr>
+              ))}
+            </tbody>
+          )}
         </table>
       </div>
 

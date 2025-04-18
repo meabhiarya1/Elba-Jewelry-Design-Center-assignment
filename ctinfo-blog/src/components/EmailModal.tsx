@@ -1,13 +1,8 @@
-import React, { useState } from "react";
-import styles from "./BlogModal.module.css";
-import closeButton from "../assets/close-icon.png";
+import { useState } from "react";
+import styles from "./EmailModal.module.css";
 import { useEmail } from "../context/EmailContext";
 
-type EmailModalProps = {
-    onClose: () => void;
-};
-
-const EmailModal: React.FC<EmailModalProps> = ({ onClose }) => {
+const EmailModal = () => {
     const { setEmail } = useEmail();
     const [emailInput, setEmailInput] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
@@ -19,16 +14,11 @@ const EmailModal: React.FC<EmailModalProps> = ({ onClose }) => {
             return;
         }
         setEmail(emailInput);
-        onClose();
     };
 
     return (
-        <div className={styles.modalOverlay} onClick={onClose}>
+        <div className={styles.modalOverlay}>
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-                <button onClick={onClose} className={styles.closeButton}>
-                    <img src={closeButton} alt="Close" className={styles.closeIcon} />
-                </button>
-
                 <h2 className={styles.title}>Enter Your Email</h2>
 
                 <input
@@ -36,7 +26,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ onClose }) => {
                     placeholder="Email"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
-                    className={styles.description}
+                    className={styles.inputField} // Updated to use the new class
                 />
                 <br />
                 <input
@@ -44,12 +34,16 @@ const EmailModal: React.FC<EmailModalProps> = ({ onClose }) => {
                     placeholder="Confirm Email"
                     value={confirmEmail}
                     onChange={(e) => setConfirmEmail(e.target.value)}
-                    className={styles.description}
+                    className={styles.inputField} // Updated to use the new class
                 />
 
-                {error && <p style={{ color: "red" }}>{error}</p>}
+                {error && <p className={styles.errorMessage}>{error}</p>} {/* Applied errorMessage styling */}
 
-                <button onClick={handleSubmit} className={styles.title} style={{ marginTop: "12px", cursor: "pointer" }}>
+                <button
+                    onClick={handleSubmit}
+                    className={styles.submitButton} // Use submitButton class for styling
+                    style={{ marginTop: "12px", cursor: "pointer" }}
+                >
                     Submit
                 </button>
             </div>

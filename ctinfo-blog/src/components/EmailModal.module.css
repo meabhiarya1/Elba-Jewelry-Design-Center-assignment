@@ -1,0 +1,75 @@
+/* EmailModal.module.css */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modalContent {
+  background-color: var(--color-background);
+  border-radius: var(--spacing-1); /* 12px */
+  padding: var(--spacing-2); /* 24px */
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  font-family: var(--font-body);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility */
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-h2); /* 18px */
+  color: var(--color-font-primary);
+  margin-bottom: var(--spacing-1); /* 12px */
+  text-align: center; /* Center title */
+}
+
+.inputField {
+  width: 90%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: var(--spacing-1); /* 12px */
+  font-size: var(--font-size-body); /* 15px */
+  color: var(--color-font-primary);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.inputField:focus {
+  border-color: var(--color-primary); /* Highlight border on focus */
+}
+
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-primary);
+  color: #0a0a0a;
+  border: 1px solid black;
+  border-radius: var(--spacing-1); /* 12px */
+  font-size: var(--font-size-h3); /* 16px */
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--color-primary-dark); /* Darken button on hover */
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
