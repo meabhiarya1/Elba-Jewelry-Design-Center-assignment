@@ -1,18 +1,27 @@
-/* src/styles/variables.css */
 :root {
-    --color-background: #FFFFFF;
-    --color-background-secondary: #F3F3F3;
-    --color-font-primary: #000000;
-    --color-font-secondary: #979FA0;
-    --color-blue: #009BE9;
-    --color-green: #8CC928;
-  
-    --font-h1: "Roboto Black", sans-serif;
-    --font-h2: "Roboto Medium", sans-serif;
-    --font-body: "Roboto", sans-serif;
-  
-    --font-size-h1: 50px;
-    --font-size-h2: 18px;
-    --font-size-body: 15px;
-  }
-  
+  /* Colors */
+  --color-background: #ffffff;
+  --color-background-secondary: #f3f3f3;
+  --color-font-primary: #000000;
+  --color-font-secondary: #979fa0;
+  --color-blue: #009be9;
+  --color-green: #8cc928;
+
+  /* Fonts */
+  --font-h1: "Roboto Black", sans-serif;
+  --font-h2: "Roboto Medium", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+  --font-size-h1: 50px;
+  --font-size-h2: 18px;
+  --font-size-body: 15px;
+
+  /* Spacing scale (multiples of 12px) */
+  --spacing-0: 0px;
+  --spacing-1: 12px;
+  --spacing-2: 24px;
+  --spacing-3: 36px;
+  --spacing-4: 48px;
+  --spacing-5: 60px;
+  --spacing-6: 72px;
+}
