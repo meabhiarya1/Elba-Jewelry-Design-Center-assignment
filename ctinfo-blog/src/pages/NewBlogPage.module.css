@@ -81,51 +81,6 @@
   box-shadow: rgba(133, 189, 215, 0.88) 0px 15px 10px -10px;
 }
 
-.social-account-container {
-  margin-top: calc(var(--spacing-1) + 5px);
-}
-
-.social-account-container .title {
-  display: block;
-  text-align: center;
-  font-size: 10px;
-  color: var(--color-font-secondary);
-}
-
-.social-account-container .social-accounts {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 5px;
-}
-
-.social-account-container .social-accounts .social-button {
-  background: linear-gradient(45deg, #000000 0%, #707070 100%);
-  border: 5px solid var(--color-background);
-  padding: 5px;
-  border-radius: 50%;
-  width: 40px;
-  aspect-ratio: 1;
-  display: grid;
-  place-content: center;
-  box-shadow: rgba(133, 189, 215, 0.88) 0px 12px 10px -8px;
-  transition: all 0.2s ease-in-out;
-}
-
-.social-account-container .social-accounts .social-button .svg {
-  fill: var(--color-background);
-  margin: auto;
-}
-
-.social-account-container .social-accounts .social-button:hover {
-  transform: scale(1.2);
-}
-
-.social-account-container .social-accounts .social-button:active {
-  transform: scale(0.9);
-}
-
 .agreement {
   display: block;
   text-align: center;
