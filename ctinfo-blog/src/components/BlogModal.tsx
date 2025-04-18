@@ -25,7 +25,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, onClose }) => {
         </button>
 
         <h2 className={styles.title}>{blog.title}</h2>
-        <p className={styles.description}>{blog.description}</p>
+        <p className={styles.description}>Description: {blog.description}</p>
       </div>
     </div>
   );
