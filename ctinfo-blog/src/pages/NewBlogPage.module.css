@@ -45,19 +45,8 @@
   border-inline: 2px solid var(--color-blue);
 }
 
-.form .forgot-password {
-  display: block;
-  margin-top: 10px;
-  margin-left: 10px;
-}
 
-.form .forgot-password a {
-  font-size: 11px;
-  color: var(--color-blue);
-  text-decoration: none;
-}
-
-.form .login-button {
+.form .create-button {
   display: block;
   width: 100%;
   font-weight: bold;
@@ -73,12 +62,12 @@
   cursor: pointer;
 }
 
-.form .login-button:hover {
+.form .create-button:hover {
   transform: scale(1.03);
   box-shadow: rgba(133, 189, 215, 0.88) 0px 23px 10px -20px;
 }
 
-.form .login-button:active {
+.form .create-button:active {
   transform: scale(0.95);
   box-shadow: rgba(133, 189, 215, 0.88) 0px 15px 10px -10px;
 }

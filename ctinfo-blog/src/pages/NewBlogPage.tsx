@@ -108,7 +108,7 @@ const NewBlogPage = () => {
             className={styles.input}
             required
           />
-          <button type="submit" className={styles["login-button"]}>
+          <button type="submit" className={styles["create-button"]}>
             Create Blog
           </button>
         </form>
