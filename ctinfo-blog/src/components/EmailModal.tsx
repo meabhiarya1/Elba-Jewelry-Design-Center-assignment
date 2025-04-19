@@ -22,24 +22,22 @@ const EmailModal = () => {
         <div className={styles.modalOverlay}>
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
                 <h2 className={styles.title}>Enter Your Email</h2>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={emailInput}
-                    onChange={(e) => setEmailInput(e.target.value)}
-                    className={styles.inputField}
-                />
+                <div className={styles.container}>
+                    <input type="email"
+                        placeholder="Email"
+                        value={emailInput}
+                        onChange={(e) => setEmailInput(e.target.value)}
+                        className={styles.input} />
+                </div>
                 <br />
-                <input
-                    type="email"
-                    placeholder="Confirm Email"
-                    value={confirmEmail}
-                    onChange={(e) => setConfirmEmail(e.target.value)}
-                    className={styles.inputField}
-                />
-
+                <div className={styles.container}>
+                    <input type="email"
+                        placeholder="Confirm Email"
+                        value={confirmEmail}
+                        onChange={(e) => setConfirmEmail(e.target.value)}
+                        className={styles.input} />
+                </div>
                 {error && <p className={styles.errorMessage}>{error}</p>}
-
                 <button
                     onClick={handleSubmit}
                     className={styles.submitButton}
