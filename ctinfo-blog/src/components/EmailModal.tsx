@@ -1,38 +1,37 @@
 import { useState } from "react";
 import styles from "./EmailModal.module.css";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
-const EmailModal = () => {
+
+interface EmailModalProps {
+    onSuccess: () => void;
+}
+
+const EmailModal = ({ onSuccess }: EmailModalProps) => {
     const [emailInput, setEmailInput] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
     const [error, setError] = useState("");
 
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-
         if (!emailInput || !confirmEmail) {
             setError("Please fill in all fields");
             return;
         }
-
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
         if (!emailRegex.test(emailInput) || !emailRegex.test(confirmEmail)) {
             setError("Please enter valid email addresses");
             return;
         }
-
         if (emailInput !== confirmEmail) {
             setError("Emails do not match");
             return;
         }
-
-        // ✅ Save email in cookies
-        Cookies.set("userEmail", emailInput, { expires: 7 }); // expires in 7 days
-        console.log(Cookies.get("userEmail"));
-        
-
-        // Optionally clear error or form state
+        Cookies.set("userEmail", emailInput, { expires: 7 });
+        onSuccess();
+        toast.success("Email saved successfully!")
         setError("");
     };
 

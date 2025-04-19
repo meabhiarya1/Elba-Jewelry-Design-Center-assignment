@@ -32,7 +32,7 @@ const NewBlogPage = () => {
   const email = Cookies.get("userEmail");
 
   if (!email) {
-    return <EmailModal />;
+    return <EmailModal onSuccess={() => navigate("/")} />;
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

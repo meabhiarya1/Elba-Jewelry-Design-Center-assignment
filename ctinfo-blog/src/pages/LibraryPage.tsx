@@ -19,8 +19,9 @@ const LibraryPage = () => {
   const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
+  const [email, setEmail] = useState<string | undefined>(Cookies.get("userEmail"));
+
   const navigate = useNavigate();
-  const email = Cookies.get("userEmail");
 
   useEffect(() => {
     if (!email) return;
@@ -51,8 +52,9 @@ const LibraryPage = () => {
   }, [email, navigate]);
 
   if (!email) {
-    return <EmailModal />;
+    return <EmailModal onSuccess={() => setEmail(Cookies.get("userEmail"))} />;
   }
+  
 
   return (
     <div className={styles.container}>
