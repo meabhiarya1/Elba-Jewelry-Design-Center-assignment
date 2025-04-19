@@ -6,13 +6,13 @@
   align-items: center;
   justify-content: center;
   z-index: 999;
-  padding: 16px; /* Small padding for mobile responsiveness */
+  padding: 16px;
 }
 
 .modalContent {
   background-color: var(--color-background);
-  border-radius: var(--spacing-1); /* 12px */
-  padding: var(--spacing-2); /* 24px */
+  border-radius: var(--spacing-1);
+  padding: var(--spacing-2);
   width: 100%;
   max-width: 480px;
   position: relative;
@@ -38,26 +38,27 @@
   pointer-events: none;
 }
 
+.title {
+  font-size: var(--font-size-h2); 
+  color: var(--color-font-primary);
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
 .input {
-  width: 200px;
-  height: 45px;
+  width: 95%;
+  height: 35px;
   border: none;
   outline: none;
-  padding: 0px 7px;
+  padding: 8px 7px;
   border-radius: 6px;
-  color: #fff;
+  border-radius: var(--spacing-1);
+  font-size: var(--font-size-body);
   font-size: 15px;
   background-color: transparent;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
     -1px -1px 6px rgba(255, 255, 255, 0.4);
-}
-
-.input:focus {
-  border: 2px solid transparent;
-  color: #fff;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
-    -1px -1px 6px rgba(255, 255, 255, 0.4), inset 3px 3px 10px rgba(0, 0, 0, 1),
-    inset -1px -1px 6px rgba(255, 255, 255, 0.4);
 }
 
 .container .input:valid ~ .label,
@@ -73,3 +74,37 @@
     -1px -1px 6px rgba(255, 255, 255, 0.4), inset 3px 3px 10px rgba(0, 0, 0, 1),
     inset -1px -1px 6px rgba(255, 255, 255, 0.4);
 }
+
+button {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #2b74d3;
+  background-color: #e0e8ef;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: rgba(255, 255, 255, 0.333);
+  border-radius: 40px 40px 40px 40px;
+  padding: 16px 24px 16px 28px;
+  transform: translate(0px, 0px) rotate(0deg);
+  transition: 0.2s;
+  box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+  margin-left: 5px;
+ }
+ 
+ button:hover {
+  color: #516d91;
+  background-color: #E5EDF5;
+  box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+ }
+ 
+ button:active {
+  box-shadow: none;
+ }

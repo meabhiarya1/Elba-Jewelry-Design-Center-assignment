@@ -45,6 +45,8 @@ const EmailModal = () => {
                 >
                     Submit
                 </button>
+
+
             </div>
         </div>
     );
