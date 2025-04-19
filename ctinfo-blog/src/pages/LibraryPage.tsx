@@ -29,7 +29,7 @@ const LibraryPage = () => {
       try {
         const data = await fetchBlogs();
 
-        const parsedData = JSON.parse(data.dt);
+        const parsedData = JSON.parse(data?.dt);
 
         const mappedBlogs = parsedData.map((blog: any) => ({
           ...blog,
@@ -84,7 +84,7 @@ const LibraryPage = () => {
                 </td>
               </tr>
             ) : (
-              blogs.map((blog) => (
+              blogs?.map((blog) => (
                 <tr key={blog.id} className={styles.tableRow}>
                   <td>
                     <img src={blog.image_link} alt="cover" className={styles.coverImage} />

@@ -26,7 +26,7 @@
   font-size: var(--font-size-body);
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-family: var(--font-h1);
+  font-family: var(--font-body);
 }
 
 .newButton:hover {
@@ -48,7 +48,7 @@
 
 .tableHead {
   background-color: var(--color-background-secondary);
-  font-family: var(--font-h2);
+  font-family: var(--font-body);
   font-size: var(--font-size-h2);
   text-align: left;
 }
@@ -79,6 +79,7 @@
   color: var(--color-blue);
   cursor: pointer;
   text-decoration: none;
+  font-family: var(--font-body);
 }
 
 .clickableTitle:hover {
@@ -88,9 +89,11 @@
 .textSecondary {
   color: var(--color-font-secondary);
   font-size: var(--font-size-body);
+  font-family: var(--font-body);
 }
 
 .textPrimary {
   color: var(--color-font-primary);
   font-size: var(--font-size-body);
+  font-family: var(--font-body);
 }
