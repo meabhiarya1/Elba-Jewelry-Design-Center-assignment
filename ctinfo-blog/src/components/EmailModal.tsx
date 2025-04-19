@@ -1,9 +1,8 @@
 import { useState } from "react";
 import styles from "./EmailModal.module.css";
-import { useEmail } from "../context/EmailContext";
+import Cookies from "js-cookie";
 
 const EmailModal = () => {
-    const { setEmail } = useEmail();
     const [emailInput, setEmailInput] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
     const [error, setError] = useState("");
@@ -13,7 +12,10 @@ const EmailModal = () => {
             setError("Emails do not match");
             return;
         }
-        setEmail(emailInput);
+
+        // ✅ Save email in cookies
+        Cookies.set("userEmail", emailInput, { expires: 7 }); // expires in 7 days
+        console.log(Cookies.get("userEmail"))
     };
 
     return (
@@ -26,7 +28,7 @@ const EmailModal = () => {
                     placeholder="Email"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
-                    className={styles.inputField} // Updated to use the new class
+                    className={styles.inputField}
                 />
                 <br />
                 <input
@@ -34,14 +36,14 @@ const EmailModal = () => {
                     placeholder="Confirm Email"
                     value={confirmEmail}
                     onChange={(e) => setConfirmEmail(e.target.value)}
-                    className={styles.inputField} // Updated to use the new class
+                    className={styles.inputField}
                 />
 
-                {error && <p className={styles.errorMessage}>{error}</p>} {/* Applied errorMessage styling */}
+                {error && <p className={styles.errorMessage}>{error}</p>}
 
                 <button
                     onClick={handleSubmit}
-                    className={styles.submitButton} // Use submitButton class for styling
+                    className={styles.submitButton}
                     style={{ marginTop: "12px", cursor: "pointer" }}
                 >
                     Submit

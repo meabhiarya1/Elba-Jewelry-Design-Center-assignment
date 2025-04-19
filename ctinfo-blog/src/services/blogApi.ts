@@ -1,20 +1,17 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import { Blog } from "../types/Blog";
-import { useContext } from "react";
-import { useEmail } from "../context/EmailContext"; // Importing the context to use it in the component
 
 const BASE_URL = "http://demo.api.admin.circlesnow.com/ProductRESTService.svc";
 
+const email = Cookies.get("userEmail");
 export const fetchBlogs = async () => {
-  // Get the email from context
-  const { email } = useContext(useEmail);
-
   if (!email) {
     throw new Error("Email is required to fetch blogs");
   }
 
   const headers = {
-    token: email, // Dynamically using the email from the context
+    token: email,
   };
 
   const response = await axios.get(`${BASE_URL}/getschedmsg`, { headers });
@@ -22,15 +19,12 @@ export const fetchBlogs = async () => {
 };
 
 export const createBlog = async (data: Blog) => {
-  // Get the email from context
-  const { email } = useContext(useEmail);
-
   if (!email) {
     throw new Error("Email is required to create a blog");
   }
 
   const headers = {
-    token: email, // Dynamically using the email from the context
+    token: email,
   };
 
   const response = await axios.post(`${BASE_URL}/schedMsg`, data, { headers });

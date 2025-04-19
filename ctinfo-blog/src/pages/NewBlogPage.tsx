@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./NewBlogPage.module.css"; // CSS Module with styles like .container, .form, etc.
-
+import Cookies from "js-cookie";
 import { createBlog as createBlogApi } from "../services/blogApi"; // Adjust the import path as necessary
+import EmailModal from "../components/EmailModal";
 
 const createBlog = async (blog: any) => {
   try {
@@ -26,6 +27,11 @@ const NewBlogPage = () => {
   });
 
   const navigate = useNavigate();
+  const email = Cookies.get("userEmail"); // Fetch email from cookies
+
+  if (!email) {
+    return <EmailModal />;
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

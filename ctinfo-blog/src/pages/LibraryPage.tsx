@@ -4,7 +4,7 @@ import BlogModal from "../components/BlogModal";
 import styles from "./LibraryPage.module.css";
 import { fetchBlogs } from "../services/blogApi";
 import EmailModal from "../components/EmailModal";
-import { useEmail } from "../context/EmailContext";
+import Cookies from "js-cookie";
 
 type Blog = {
   id: number;
@@ -20,7 +20,7 @@ const LibraryPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const { email } = useEmail(); // Get email from context
+  const email = Cookies.get("userEmail"); // Fetch email from cookies
 
   useEffect(() => {
     if (!email) return; // Don't fetch if email not set
