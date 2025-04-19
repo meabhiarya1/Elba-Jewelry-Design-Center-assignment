@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./NewBlogPage.module.css"; // CSS Module with styles like .container, .form, etc.
+import styles from "./NewBlogPage.module.css"; 
 import Cookies from "js-cookie";
-import { createBlog as createBlogApi } from "../services/blogApi"; // Adjust the import path as necessary
+import { createBlog as createBlogApi } from "../services/blogApi"; 
 import EmailModal from "../components/EmailModal";
 
 const createBlog = async (blog: any) => {
@@ -27,7 +27,7 @@ const NewBlogPage = () => {
   });
 
   const navigate = useNavigate();
-  const email = Cookies.get("userEmail"); // Fetch email from cookies
+  const email = Cookies.get("userEmail"); 
 
   if (!email) {
     return <EmailModal />;

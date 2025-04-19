@@ -3,8 +3,8 @@ import Cookies from "js-cookie";
 import { Blog } from "../types/Blog";
 
 const BASE_URL = "http://demo.api.admin.circlesnow.com/ProductRESTService.svc";
-
 const email = Cookies.get("userEmail");
+
 export const fetchBlogs = async () => {
   if (!email) {
     throw new Error("Email is required to fetch blogs");

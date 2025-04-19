@@ -20,10 +20,10 @@ const LibraryPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const email = Cookies.get("userEmail"); // Fetch email from cookies
+  const email = Cookies.get("userEmail"); 
 
   useEffect(() => {
-    if (!email) return; // Don't fetch if email not set
+    if (!email) return; 
 
     const loadBlogs = async () => {
       try {
