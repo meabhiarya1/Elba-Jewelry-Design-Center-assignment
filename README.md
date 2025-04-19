@@ -13,7 +13,7 @@ To get started with the application, clone the repository and install the depend
 
 git clone https://github.com/meabhiarya1/Elba-Jewelry-Design-Center-assignment
 
-cd ctinfo-blog
+cd Elba-Jewelry-Design-Center-assignment
 
 npm install
 
