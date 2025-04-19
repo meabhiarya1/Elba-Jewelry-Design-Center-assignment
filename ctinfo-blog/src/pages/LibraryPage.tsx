@@ -20,17 +20,15 @@ const LibraryPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const email = Cookies.get("userEmail"); 
+  const email = Cookies.get("userEmail");
 
   useEffect(() => {
-    if (!email) return; 
+    if (!email) return;
 
     const loadBlogs = async () => {
       try {
         const data = await fetchBlogs();
-
         const parsedData = JSON.parse(data?.dt);
-
         const mappedBlogs = parsedData.map((blog: any) => ({
           ...blog,
           image_link: blog.image_lnk,
@@ -50,7 +48,7 @@ const LibraryPage = () => {
     };
 
     loadBlogs();
-  }, [email]);
+  }, [email, navigate]);
 
   if (!email) {
     return <EmailModal />;

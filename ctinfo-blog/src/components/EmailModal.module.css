@@ -39,7 +39,7 @@
 }
 
 .title {
-  font-size: var(--font-size-h2); 
+  font-size: var(--font-size-h2);
   color: var(--color-font-primary);
   margin-bottom: 24px;
   text-align: center;
@@ -75,7 +75,7 @@
     inset -1px -1px 6px rgba(255, 255, 255, 0.4);
 }
 
-button {
+.submitButton {
   width: 95%;
   display: flex;
   align-items: center;
@@ -97,14 +97,22 @@ button {
   transition: 0.2s;
   box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
   margin-left: 5px;
- }
- 
- button:hover {
+}
+
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.submitButton:hover {
   color: #516d91;
-  background-color: #E5EDF5;
+  background-color: #e5edf5;
   box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
- }
- 
- button:active {
+}
+
+.submitButton:active {
   box-shadow: none;
- }
+}
