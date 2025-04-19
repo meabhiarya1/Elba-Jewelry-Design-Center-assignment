@@ -73,16 +73,15 @@ const LibraryPage = () => {
               <th>Author</th>
             </tr>
           </thead>
-
           <tbody className={styles.tableBody}>
             {loading ? (
               <tr>
-                <td colSpan={4} style={{ textAlign: "center", padding: "16px" }}>
+                <td colSpan={4} style={{ textAlign: "center", padding: "16px", color: "#999" }}>
                   Loading...
                 </td>
               </tr>
-            ) : (
-              blogs?.map((blog) => (
+            ) : blogs.length ? (
+              blogs.map((blog) => (
                 <tr key={blog.id} className={styles.tableRow}>
                   <td>
                     <img src={blog.image_link} alt="cover" className={styles.coverImage} />
@@ -97,8 +96,15 @@ const LibraryPage = () => {
                   <td className={styles.textPrimary}>{blog.author}</td>
                 </tr>
               ))
+            ) : (
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center", padding: "16px", color: "#999" }}>
+                  No blogs found
+                </td>
+              </tr>
             )}
           </tbody>
+
         </table>
       </div>
 
