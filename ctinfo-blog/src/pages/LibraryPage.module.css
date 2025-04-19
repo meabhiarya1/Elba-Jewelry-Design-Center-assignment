@@ -1,26 +1,26 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-4) var(--spacing-2); /* 48px 24px */
+  padding: var(--spacing-4) var(--spacing-2);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-2); /* 24px */
 }
 
 .title {
   font-family: var(--font-body);
   font-size: var(--font-size-h1);
   color: var(--color-font-primary);
+  
 }
 
 .newButton {
   background-color: var(--color-green);
   color: white;
-  padding: var(--spacing-1) var(--spacing-2); /* 12px 24px */
+  padding: var(--spacing-1) var(--spacing-2);
   border: none;
   border-radius: 6px;
   font-size: var(--font-size-body);
@@ -36,9 +36,11 @@
 .tableWrapper {
   overflow-x: auto;
   background-color: var(--color-background);
-  border-radius: var(--spacing-1); /* 12px */
+  border-radius: var(--spacing-1);
   border: 1px solid #e0e0e0;
   font-family: var(--font-body);
+  max-height: 650px;
+  position: relative;
 }
 
 .table {
@@ -51,12 +53,19 @@
   font-family: var(--font-body);
   font-size: var(--font-size-h2);
   text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .tableHead th,
 .tableBody td {
-  padding: var(--spacing-1) var(--spacing-2); /* 12px 24px */
+  padding: var(--spacing-1) var(--spacing-2);
   font-family: var(--font-body);
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tableRow {
@@ -69,7 +78,7 @@
 }
 
 .coverImage {
-  width: var(--spacing-4); /* 48px */
+  width: var(--spacing-4);
   height: var(--spacing-4);
   border-radius: 6px;
   object-fit: cover;
