@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./NewBlogPage.module.css"; 
+import styles from "./NewBlogPage.module.css";
 import Cookies from "js-cookie";
-import { createBlog as createBlogApi } from "../services/blogApi"; 
+import { createBlog as createBlogApi } from "../services/blogApi";
 import EmailModal from "../components/EmailModal";
+import { toast } from "react-toastify";
+
 
 const createBlog = async (blog: any) => {
   try {
@@ -27,7 +29,7 @@ const NewBlogPage = () => {
   });
 
   const navigate = useNavigate();
-  const email = Cookies.get("userEmail"); 
+  const email = Cookies.get("userEmail");
 
   if (!email) {
     return <EmailModal />;
@@ -40,9 +42,24 @@ const NewBlogPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (formData.description.length > 1000) {
+      toast.error("Description should be less than 1000 characters.");
+      return;
+    }
+
     await createBlog(formData);
+    toast.success("Blog created successfully!");
+    setFormData({
+      title: "",
+      launchdate: "",
+      author: "",
+      image_link: "",
+      description: "",
+    });
     navigate("/");
   };
+
 
   return (
     <div className="wrapper">
