@@ -16,6 +16,7 @@
   width: 100%;
   position: relative;
   font-family: var(--font-body);
+  margin: var(--spacing-1);
 }
 
 .closeButton {
