@@ -22,7 +22,6 @@ const EmailModal = () => {
         <div className={styles.modalOverlay}>
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
                 <h2 className={styles.title}>Enter Your Email</h2>
-
                 <input
                     type="email"
                     placeholder="Email"

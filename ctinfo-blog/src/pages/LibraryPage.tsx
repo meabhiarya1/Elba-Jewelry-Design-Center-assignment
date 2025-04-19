@@ -76,18 +76,18 @@ const LibraryPage = () => {
             </tr>
           </thead>
 
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <tbody className={styles.tableBody}>
-              {blogs?.map((blog) => (
+          <tbody className={styles.tableBody}>
+            {loading ? (
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center", padding: "16px" }}>
+                  Loading...
+                </td>
+              </tr>
+            ) : (
+              blogs.map((blog) => (
                 <tr key={blog.id} className={styles.tableRow}>
                   <td>
-                    <img
-                      src={blog.image_link}
-                      alt="cover"
-                      className={styles.coverImage}
-                    />
+                    <img src={blog.image_link} alt="cover" className={styles.coverImage} />
                   </td>
                   <td className={styles.textSecondary}>{blog.launchdate}</td>
                   <td
@@ -98,9 +98,9 @@ const LibraryPage = () => {
                   </td>
                   <td className={styles.textPrimary}>{blog.author}</td>
                 </tr>
-              ))}
-            </tbody>
-          )}
+              ))
+            )}
+          </tbody>
         </table>
       </div>
 
