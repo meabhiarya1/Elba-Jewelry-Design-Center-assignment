@@ -10,8 +10,8 @@
 
 .modalContent {
   background-color: var(--color-background);
-  border-radius: var(--spacing-1); /* 12px */
-  padding: var(--spacing-2); /* 24px */
+  border-radius: var(--spacing-1); 
+  padding: var(--spacing-2); 
   max-width: 480px;
   width: 100%;
   position: relative;
@@ -21,7 +21,7 @@
 
 .closeButton {
   position: absolute;
-  top: var(--spacing-1); /* 12px */
+  top: var(--spacing-1); 
   right: var(--spacing-1);
   background: none;
   border: none;
@@ -35,14 +35,14 @@
 
 .title {
   font-family: var(--font-body);
-  font-size: var(--font-size-h2); /* 18px */
+  font-size: var(--font-size-h2); 
   color: var(--color-font-primary);
-  margin-bottom: var(--spacing-1); /* 12px */
+  margin-bottom: var(--spacing-1); 
 }
 
 .description {
   font-family: var(--font-body);
-  font-size: var(--font-size-body); /* 15px */
+  font-size: var(--font-size-body);
   color: var(--color-font-secondary);
   white-space: pre-wrap;
 }

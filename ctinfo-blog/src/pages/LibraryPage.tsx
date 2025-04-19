@@ -25,7 +25,6 @@ const LibraryPage = () => {
 
   useEffect(() => {
     if (!email) return;
-
     const loadBlogs = async () => {
       try {
         const data = await fetchBlogs();
@@ -47,7 +46,6 @@ const LibraryPage = () => {
         setLoading(false);
       }
     };
-
     loadBlogs();
   }, [email, navigate]);
 

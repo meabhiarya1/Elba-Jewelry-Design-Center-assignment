@@ -72,14 +72,3 @@
   box-shadow: rgba(133, 189, 215, 0.88) 0px 15px 10px -10px;
 }
 
-.agreement {
-  display: block;
-  text-align: center;
-  margin-top: var(--spacing-1);
-}
-
-.agreement a {
-  text-decoration: none;
-  color: var(--color-blue);
-  font-size: 9px;
-}
