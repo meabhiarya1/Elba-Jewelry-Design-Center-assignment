@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { createBlog as createBlogApi } from "../services/blogApi";
 import EmailModal from "../components/EmailModal";
 import { toast } from "react-toastify";
+import dashboardImage from "../assets/Blogpost.svg";
 
 
 const createBlog = async (blog: any) => {
@@ -63,57 +64,65 @@ const NewBlogPage = () => {
 
   return (
     <div className="wrapper">
-      <div className={styles.container}>
-        <div className={styles.heading}>Create New Blog</div>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <input
-            name="title"
-            placeholder="Blog Title"
-            value={formData.title}
-            onChange={handleChange}
-            className={styles.input}
-            required
-          />
-          <input
-            name="launchdate"
-            type="date"
-            placeholder="Launch Date"
-            value={formData.launchdate}     
-            onChange={handleChange}
-            className={styles.input}
-            required
-          />
-          <input
-            name="author"
-            placeholder="Author"
-            value={formData.author}
-            onChange={handleChange}
-            className={styles.input}
-            required
-          />
-          <input
-            name="image_link"
-            placeholder="Image URL"
-            value={formData.image_link}
-            onChange={handleChange}
-            className={styles.input}
-            required
-          />
-          <textarea
-            name="description"
-            placeholder="Description"
-            rows={5}
-            value={formData.description}
-            onChange={handleChange}
-            className={styles.input}
-            required
-          />
-          <button type="submit" className={styles["create-button"]}>
-            Create Blog
-          </button>
-        </form>
+      <div className={styles.backgroungContainer}>
+        <div style={{ display: "flex", justifyContent: "end", alignItems: "center" }}>
+          <img src={dashboardImage} alt="dashboardImage" className={styles.image} />
+        </div>
+        <div>
+          <div className={styles.container}>
+            {/* <div className={styles.heading}>Create New Blog</div> */}
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <input
+                name="title"
+                placeholder="Blog Title"
+                value={formData.title}
+                onChange={handleChange}
+                className={styles.input}
+                required
+              />
+              <input
+                name="launchdate"
+                type="date"
+                placeholder="Launch Date"
+                value={formData.launchdate}
+                onChange={handleChange}
+                className={styles.input}
+                required
+              />
+              <input
+                name="author"
+                placeholder="Author"
+                value={formData.author}
+                onChange={handleChange}
+                className={styles.input}
+                required
+              />
+              <input
+                name="image_link"
+                placeholder="Image URL"
+                value={formData.image_link}
+                onChange={handleChange}
+                className={styles.input}
+                required
+              />
+              <textarea
+                name="description"
+                placeholder="Description"
+                rows={5}
+                value={formData.description}
+                onChange={handleChange}
+                className={styles.input}
+                required
+              />
+              <button type="submit" className={styles["create-button"]}>
+                Create Blog
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
+
   );
 };
 
