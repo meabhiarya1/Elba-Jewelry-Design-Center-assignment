@@ -13,17 +13,18 @@
 .title {
   font-family: var(--font-body);
   font-size: var(--font-size-h1);
-  color: var(--color-font-primary);
+  font-weight: bolder;
   margin-bottom: var(--spacing-1);
 }
 
 .newButton {
   background-color: var(--color-green);
   color: white;
-  padding: var(--spacing-1) var(--spacing-2);
+  padding: var(--spacing-1) var(--spacing-4);
   border: none;
   border-radius: 6px;
-  font-size: var(--font-size-body);
+  font-weight: 500;
+  font-size: var(--font-size-h2);
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-family: var(--font-body);
@@ -46,7 +47,7 @@
 
 .tableWrapper::-webkit-scrollbar {
   height: 8px;
-  width: 8px;
+  width: 0px;
 }
 
 .tableWrapper::-webkit-scrollbar-track {
@@ -72,7 +73,7 @@
 .tableHead {
   background-color: var(--color-background-secondary);
   font-family: var(--font-body);
-  font-size: var(--font-size-h2);
+  font-size: var(--font-size-body);
   text-align: left;
   position: sticky;
   top: 0;
@@ -84,6 +85,8 @@
   padding: var(--spacing-1) var(--spacing-2);
   font-family: var(--font-body);
   max-width: 200px;
+  font-size: var(--font-size-h2);
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

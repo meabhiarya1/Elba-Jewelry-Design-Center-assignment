@@ -70,7 +70,6 @@ const NewBlogPage = () => {
         </div>
         <div>
           <div className={styles.container}>
-            {/* <div className={styles.heading}>Create New Blog</div> */}
             <form className={styles.form} onSubmit={handleSubmit}>
               <input
                 name="title"
