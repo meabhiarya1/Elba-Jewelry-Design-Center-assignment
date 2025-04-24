@@ -78,7 +78,7 @@ const NewBlogPage = () => {
             name="launchdate"
             type="date"
             placeholder="Launch Date"
-            value={formData.launchdate}
+            value={formData.launchdate}     
             onChange={handleChange}
             className={styles.input}
             required

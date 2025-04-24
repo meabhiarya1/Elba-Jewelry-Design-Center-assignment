@@ -5,11 +5,11 @@
   --color-font-secondary: #979fa0;
   --color-blue: #009be9;
   --color-green: #8cc928;
+  --color-dark-green: #79a730;
 
   --font-h1: "Roboto Black", sans-serif;
   --font-h2: "Roboto Medium", sans-serif;
   --font-body: "Roboto", sans-serif;
-  
 
   --font-size-h1: 50px;
   --font-size-h2: 18px;
@@ -24,7 +24,8 @@
   --spacing-6: 72px;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
 }
@@ -33,6 +34,6 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
-  background: #eef3f8; 
+  height: 100vh;
+  /* background: #eef3f8;  */
 }
